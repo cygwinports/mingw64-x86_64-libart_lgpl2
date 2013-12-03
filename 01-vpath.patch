@@ -1,0 +1,11 @@
+--- origsrc/libart_lgpl-2.3.21/Makefile.am	2009-04-18 07:29:25.000000000 -0500
++++ src/libart_lgpl-2.3.21/Makefile.am	2012-09-14 06:12:27.635308500 -0500
+@@ -23,7 +23,7 @@ no_undefined = -no-undefined
+ endif
+ 
+ if OS_WIN32
+-export_symbols = -export-symbols libart.def
++export_symbols = -export-symbols $(srcdir)/libart.def
+ 
+ install-libtool-import-lib:
+ 	$(INSTALL) .libs/libart_lgpl_2.dll.a $(DESTDIR)$(libdir)

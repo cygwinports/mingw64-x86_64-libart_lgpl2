@@ -1,0 +1,25 @@
+CROSS_HOST="x86_64-w64-mingw32"
+ORIG_PN="libart_lgpl"
+inherit cross gnome2
+
+NAME="mingw64-x86_64-libart_lgpl2"
+VERSION=2.3.21
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="2D vector graphics library to Win64 toolchain"
+DESCRIPTION="Libart is a library of functions for 2D graphics supporting a
+superset of the PostScript imaging model, designed to be integrated with
+graphics, artwork, and illustration programs. It is written in optimized
+C, and is fully compatible with C++. With a small footprint of 10,000
+lines of code, it is especially suitable for embedded applications."
+HOMEPAGE="http://www.levien.com/libart/"
+
+PATCH_URI="01-vpath.patch"
+
+src_install() {
+	cd ${B}
+	# install-libtool-import-lib is not parallel-safe
+	cyginstall -j1
+}
+
+KEEP_LA_FILES="none"
